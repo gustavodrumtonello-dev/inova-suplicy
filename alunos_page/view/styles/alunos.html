@@ -1,0 +1,102 @@
+<style>
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .search-input {
+        padding: 8px 12px;
+        border: 1px solid var(--outline);
+        border-radius: var(--radius-sm);
+        width: 300px;
+        font-family: var(--font-family);
+    }
+
+    .search-input:focus {
+        border-color: var(--primary-container);
+        outline: none;
+    }
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--surface-container);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--outline);
+    }
+
+    .data-table th, .data-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--outline);
+    }
+
+    .data-table th {
+        background-color: var(--surface);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+    }
+
+    .data-table tr:hover {
+        background-color: #F1F5F9; /* Hover state do DESIGN.md */
+    }
+
+    .chip-success {
+        background-color: #d1fae5;
+        color: #065f46;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .chip-warning {
+        background-color: #fef3c7;
+        color: #92400e;
+        padding: 4px 12px;
+        border-radius: var(--radius-full);
+        font-size: 12px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="page-header">
+    <div>
+        <h1 style="font-size: 24px; font-weight: 600;">Gestão de Alunos</h1>
+        <p style="color: var(--outline);">Gerencie cadastros e biometria facial</p>
+    </div>
+    <input type="text" class="search-input" placeholder="Buscar aluno por nome ou RA...">
+</div>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Matrícula (RA)</th>
+            <th>Nome do Aluno</th>
+            <th>Turma</th>
+            <th>Status Biometria</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="tabela-alunos">
+        <tr>
+            <td style="font-weight: 500;">2026001</td>
+            <td>Ana Carolina Silva</td>
+            <td>1º Ano A</td>
+            <td><span class="chip-success">Cadastrada</span></td>
+            <td><button style="color: var(--secondary); background: none; border: none; cursor: pointer;">Editar</button></td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">2026002</td>
+            <td>Carlos Eduardo Mendes</td>
+            <td>2º Ano B</td>
+            <td><span class="chip-warning">Pendente</span></td>
+            <td><button style="color: var(--secondary); background: none; border: none; cursor: pointer;">Editar</button></td>
+        </tr>
+    </tbody>
+</table>

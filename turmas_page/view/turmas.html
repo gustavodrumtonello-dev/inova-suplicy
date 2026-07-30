@@ -1,0 +1,49 @@
+<style>
+    .grid-turmas {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+
+    .turma-card {
+        background: var(--surface-container);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--outline);
+        transition: transform 0.2s;
+    }
+
+    .turma-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+    }
+</style>
+
+<div>
+    <h1 style="font-size: 24px; font-weight: 600;">Turmas</h1>
+    <p style="color: var(--outline);">Visão geral do ano letivo</p>
+</div>
+
+<div class="grid-turmas" id="lista-turmas">
+    <div class="turma-card">
+        <h3 style="color: var(--primary-container); margin-bottom: 8px;">1º Ano A</h3>
+        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
+        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
+        <p style="font-weight: 600;">32 Alunos</p>
+    </div>
+    
+    <div class="turma-card">
+        <h3 style="color: var(--primary-container); margin-bottom: 8px;">1º Ano B</h3>
+        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
+        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
+        <p style="font-weight: 600;">28 Alunos</p>
+    </div>
+
+    <div class="turma-card">
+        <h3 style="color: var(--primary-container); margin-bottom: 8px;">2º Ano A</h3>
+        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
+        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
+        <p style="font-weight: 600;">35 Alunos</p>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+:root {
+    /* Colors baseadas no DESIGN.md */
+    --primary: #00236f;
+    --primary-container: #1e3a8a;
+    --secondary: #0058be;
+    --secondary-container: #2170e4;
+    --tertiary: #1d2b3a;
+    --surface: #f9f9f9;
+    --surface-container: #ffffff;
+    --on-surface: #1b1b1b;
+    --outline: #c5c5d3;
+    --error: #ba1a1a;
+    
+    /* Typography */
+    --font-family: 'Inter', sans-serif;
+    
+    /* Spacing & Radii */
+    --radius-sm: 4px;
+    --radius-lg: 8px;
+    --radius-full: 9999px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--surface);
+    color: var(--on-surface);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar de Navegação */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-container);
+    color: #ffffff;
+    padding: var(--spacing-lg);
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #b6c4ff;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav-links button:hover, .nav-links button.active {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+#app-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}

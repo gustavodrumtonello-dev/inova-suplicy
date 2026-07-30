@@ -1,0 +1,85 @@
+<style>
+    .config-section {
+        background: var(--surface-container);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--outline);
+        margin-bottom: var(--spacing-lg);
+        max-width: 800px;
+    }
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        color: var(--on-surface);
+    }
+
+    .form-group input[type="text"], .form-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--outline);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-family);
+    }
+
+    .btn-save {
+        background-color: var(--primary-container);
+        color: #ffffff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .btn-save:hover {
+        background-color: var(--primary);
+    }
+</style>
+
+<div style="margin-bottom: var(--spacing-lg);">
+    <h1 style="font-size: 24px; font-weight: 600;">Configurações do Sistema</h1>
+    <p style="color: var(--outline);">Parâmetros de hardware, rede e segurança</p>
+</div>
+
+<div class="config-section">
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: var(--primary);">Conexão de Hardware (Câmeras IP)</h2>
+    <div class="form-group">
+        <label>URL RTSP - Câmera Principal (Portão 1)</label>
+        <input type="text" placeholder="rtsp://usuario:senha@ip_da_camera:554/stream1">
+    </div>
+    <div class="form-group">
+        <label>URL RTSP - Câmera Secundária (Portão 2)</label>
+        <input type="text" placeholder="rtsp://usuario:senha@ip_da_camera:554/stream1">
+    </div>
+</div>
+
+<div class="config-section">
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: var(--primary);">Banco de Dados (Supabase)</h2>
+    <div class="form-group">
+        <label>Supabase Project URL</label>
+        <input type="text" placeholder="https://xyzcompany.supabase.co">
+    </div>
+    <div class="form-group">
+        <label>Supabase API Key (anon/public)</label>
+        <input type="password" placeholder="Sua chave de API do Supabase">
+    </div>
+</div>
+
+<div class="config-section">
+    <h2 style="font-size: 18px; margin-bottom: 16px; color: var(--primary);">Plano de Contingência</h2>
+    <div class="form-group" style="display: flex; align-items: center; gap: 12px;">
+        <input type="checkbox" id="planoB" style="width: 20px; height: 20px;">
+        <label for="planoB" style="margin: 0; text-transform: none; font-size: 14px;">Ativar Modo de Chamada Manual (Backup por falha de sistema/energia)</label>
+    </div>
+</div>
+
+<button class="btn-save">Salvar Configurações</button>
