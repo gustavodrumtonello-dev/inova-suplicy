@@ -1,49 +1,335 @@
-<style>
-    .grid-turmas {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-lg);
-        margin-top: var(--spacing-lg);
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EduAdmin - Estatísticas por Turma</title>
 
-    .turma-card {
-        background: var(--surface-container);
-        padding: var(--spacing-lg);
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--outline);
-        transition: transform 0.2s;
-    }
+        <!-- Font Awesome 6 (Icons) -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    .turma-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
-    }
-</style>
+        <link rel="stylesheet" href="./styles/turmas.css" />
+    </head>
+    <body>
 
-<div>
-    <h1 style="font-size: 24px; font-weight: 600;">Turmas</h1>
-    <p style="color: var(--outline);">Visão geral do ano letivo</p>
-</div>
+        <!-- Sidebar Component -->
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <div class="brand-icon body-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h1 class="headline-sm">EduAdmin</h1>
+                        <p class="label-md"
+                            style="color: var(--color-on-surface-variant);">Secretaria
+                            Escolar</p>
+                    </div>
+                </div>
 
-<div class="grid-turmas" id="lista-turmas">
-    <div class="turma-card">
-        <h3 style="color: var(--primary-container); margin-bottom: 8px;">1º Ano A</h3>
-        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
-        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
-        <p style="font-weight: 600;">32 Alunos</p>
-    </div>
-    
-    <div class="turma-card">
-        <h3 style="color: var(--primary-container); margin-bottom: 8px;">1º Ano B</h3>
-        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
-        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
-        <p style="font-weight: 600;">28 Alunos</p>
-    </div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item body-md">
+                        <i class="fa-solid fa-display nav-icon"></i>
+                        <span>Painel</span>
+                    </a>
+                    <a href="#" class="nav-item active body-md">
+                        <i class="fa-solid fa-graduation-cap nav-icon"></i>
+                        <span>Turmas</span>
+                    </a>
+                    <a href="#" class="nav-item body-md">
+                        <i class="fa-solid fa-chart-simple nav-icon"></i>
+                        <span>Relatórios</span>
+                    </a>
+                    <a href="#" class="nav-item body-md">
+                        <i class="fa-solid fa-gear nav-icon"></i>
+                        <span>Configurações</span>
+                    </a>
+                </nav>
+            </div>
 
-    <div class="turma-card">
-        <h3 style="color: var(--primary-container); margin-bottom: 8px;">2º Ano A</h3>
-        <p style="font-size: 14px; color: var(--outline);">Ensino Médio</p>
-        <hr style="border: none; border-top: 1px solid var(--outline); margin: 12px 0;">
-        <p style="font-weight: 600;">35 Alunos</p>
-    </div>
-</div>
+            <div class="sidebar-footer">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                    alt="Avatar Usuário" class="user-avatar" />
+                <button class="btn btn-primary btn-sm label-md">Gerar
+                    Relatório</button>
+            </div>
+        </aside>
+
+        <!-- Main Content View -->
+        <main class="main-content">
+
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <h2 class="headline-md">Estatísticas de Turmas e Presença</h2>
+
+                <div class="topbar-actions">
+                    <button class="icon-btn" aria-label="Notificações">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+                    <button class="icon-btn" aria-label="Perfil">
+                        <i class="fa-regular fa-circle-user"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Main Area -->
+            <div class="dashboard-container">
+
+                <!-- Filter Bar -->
+                <div class="filter-card">
+                    <div class="filter-inputs">
+                        <div class="field-group">
+                            <label class="label-md"
+                                style="color: var(--color-on-surface-variant);">Consulta
+                                por Período</label>
+                            <input type="date" value="2023-10-01"
+                                class="date-input body-md" />
+                        </div>
+                        <div class="field-group">
+                            <label class="label-md"
+                                style="color: var(--color-on-surface-variant);">Até</label>
+                            <input type="date" value="2023-10-07"
+                                class="date-input body-md" />
+                        </div>
+                    </div>
+                    <button class="btn btn-primary body-md">
+                        <i class="fa-solid fa-sliders"></i> Filtrar
+                    </button>
+                </div>
+
+                <!-- KPI Metrics Grid (3 Columns) -->
+                <div class="metrics-grid-3">
+
+                    <!-- Metric Card 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="label-md">Presença Média</span>
+                        </div>
+                        <div
+                            class="card-value display-lg data-tabular">92.4%</div>
+                        <p class="card-subtitle body-md text-danger">
+                            <i class="fa-solid fa-arrow-down"></i> -1.2% em
+                            relação à semana anterior
+                        </p>
+                    </div>
+
+                    <!-- Metric Card 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="label-md">Total de Turmas</span>
+                        </div>
+                        <div class="card-value display-lg data-tabular">48</div>
+                        <p class="card-subtitle body-md">— Sem alterações</p>
+                    </div>
+
+                    <!-- Metric Card 3: Real-Time Alert Elevation -->
+                    <div class="card card-alert">
+                        <div class="card-header">
+                            <span class="label-md">Atrasos Críticos</span>
+                            <i class="fa-regular fa-clock text-danger"></i>
+                        </div>
+                        <div
+                            class="card-value display-lg data-tabular text-danger">14</div>
+                        <p class="card-subtitle body-md text-danger">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Atenção necessária no 1º Ano A
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Charts Section (Grid Layout) -->
+                <div class="charts-grid">
+
+                    <!-- Bar Chart: Presença por Turma (%) -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="headline-sm">Presença por Turma (%)</h3>
+                        </div>
+
+                        <div class="bar-chart-container">
+                            <div class="bar-group">
+                                <div class="bar" style="height: 85%;"></div>
+                                <span class="bar-label">3º Médio A</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 78%;"></div>
+                                <span class="bar-label">3º Médio B</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 82%;"></div>
+                                <span class="bar-label">2º Médio A</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 75%;"></div>
+                                <span class="bar-label">2º Médio B</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 66%;"></div>
+                                <span class="bar-label">1º Médio A</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 79%;"></div>
+                                <span class="bar-label">1º Médio B</span>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 84%;"></div>
+                                <span class="bar-label">9º Fund A</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SVG Line Chart Area: Tendência de Atrasos -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="headline-sm">Tendência de Atrasos
+                                (Últimos 7 dias)</h3>
+                        </div>
+
+                        <div class="svg-chart-container">
+                            <svg class="svg-chart" viewBox="0 0 350 180"
+                                preserveAspectRatio="none">
+                                <!-- Grid Lines -->
+                                <line x1="0" y1="30" x2="350" y2="30"
+                                    stroke="#e8e8e8" stroke-dasharray="2" />
+                                <line x1="0" y1="80" x2="350" y2="80"
+                                    stroke="#e8e8e8" stroke-dasharray="2" />
+                                <line x1="0" y1="130" x2="350" y2="130"
+                                    stroke="#e8e8e8" stroke-dasharray="2" />
+
+                                <!-- Filled Gradient Area -->
+                                <defs>
+                                    <lineargradient id="chartGradient" x1="0"
+                                        y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#757682"
+                                            stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#757682"
+                                            stop-opacity="0.0" />
+                                    </lineargradient>
+                                </defs>
+
+                                <polygon
+                                    points="10,120 60,70 110,100 160,20 210,40 260,150 310,165 310,180 10,180"
+                                    fill="url(#chartGradient)" />
+
+                                <!-- Trend Line -->
+                                <polyline
+                                    points="10,120 60,70 110,100 160,20 210,40 260,150 310,165"
+                                    fill="none" stroke="#1b1b1b"
+                                    stroke-width="2" />
+
+                                <!-- Data Points -->
+                                <circle cx="10" cy="120" r="4" fill="#1b1b1b" />
+                                <circle cx="60" cy="70" r="4" fill="#1b1b1b" />
+                                <circle cx="110" cy="100" r="4"
+                                    fill="#1b1b1b" />
+                                <circle cx="160" cy="20" r="4" fill="#1b1b1b" />
+                                <circle cx="210" cy="40" r="4" fill="#1b1b1b" />
+                                <circle cx="260" cy="150" r="4"
+                                    fill="#1b1b1b" />
+                                <circle cx="310" cy="165" r="4"
+                                    fill="#1b1b1b" />
+
+                                <!-- Axis Labels -->
+                                <text x="10" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Seg</text>
+                                <text x="60" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Ter</text>
+                                <text x="110" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Qua</text>
+                                <text x="160" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Qui</text>
+                                <text x="210" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Sex</text>
+                                <text x="260" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Sáb</text>
+                                <text x="310" y="180" font-size="10"
+                                    fill="#757682"
+                                    text-anchor="middle">Dom</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Data Table: Detalhamento por Turma -->
+                <div class="table-panel">
+                    <div class="table-header">
+                        <h3 class="headline-sm">Detalhamento por Turma</h3>
+                        <button class="btn btn-secondary btn-sm body-md">
+                            <i class="fa-solid fa-file-csv"></i> Exportar CSV
+                        </button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="label-md">Turma</th>
+                                    <th class="label-md">Professor(a) Resp.</th>
+                                    <th class="label-md">Total Alunos</th>
+                                    <th class="label-md">Presença (%)</th>
+                                    <th class="label-md">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="body-md"
+                                        style="font-weight: 600;">3º Ano Médio
+                                        A</td>
+                                    <td class="body-md">Prof. Silva</td>
+                                    <td class="data-tabular">32</td>
+                                    <td>
+                                        <div class="progress-cell">
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill"
+                                                    style="width: 95%;"></div>
+                                            </div>
+                                            <span
+                                                class="data-tabular">95%</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="chip chip-success label-md">Excelente</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="body-md"
+                                        style="font-weight: 600;">2º Ano Médio
+                                        B</td>
+                                    <td class="body-md">Profª. Costa</td>
+                                    <td class="data-tabular">28</td>
+                                    <td>
+                                        <div class="progress-cell">
+                                            <div class="progress-bar-bg">
+                                                <div class="progress-bar-fill"
+                                                    style="width: 88%;"></div>
+                                            </div>
+                                            <span
+                                                class="data-tabular">88%</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="chip chip-warning label-md">Regular</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </body>
+</html>
