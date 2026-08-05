@@ -1,0 +1,7 @@
+CAMERA_ID = 0
+
+PASTA_ROSTOS = "rostos"
+
+TOLERANCIA_RECONHECIMENTO = 0.6
+
+BANCO_DADOS = "database/facial.db"
