@@ -1,8 +1,0 @@
-opencv-python
-mediapipe
-numpy
-face-recognition
-dlib
-customtkinter
-pillow
-openpyxl

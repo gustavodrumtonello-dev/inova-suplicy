@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Suplicy - Sistema Acadêmico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="global.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduAdmin - Academic Oversight System</title>
+    <link rel="stylesheet" href="./global.css" />
 </head>
 <body>
-    <nav class="sidebar">
-        <div class="brand">Inova Suplicy</div>
-        <ul class="nav-links">
-            <li><button onclick="navegar('alunos')">Alunos</button></li>
-            <li><button onclick="navegar('turmas')">Turmas</button></li>
-            <li><button onclick="navegar('relatorios')" class="active">Dashboard Pedagógico</button></li>
-            <li><button onclick="navegar('configuracoes')">Configurações</button></li>
-        </ul>
-    </nav>
 
-    <main id="app-content">
-        </main>
+    <!-- Sidebar (Fixo) -->
+    <aside class="sidebar">
+        <div>
+            <div class="sidebar-header">
+                <div class="brand-icon body-lg">🎓</div>
+                <div class="brand-info">
+                    <h1 class="headline-sm">EduAdmin</h1>
+                    <p class="label-md" style="color: var(--color-on-surface-variant);">Secretaria Escolar</p>
+                </div>
+            </div>
+
+            <!-- Menu de Navegação atualizado com o router -->
+            <nav class="sidebar-nav">
+                <button onclick="navegar('dashboard')" class="nav-item active body-md">
+                    <span>📊</span>
+                    <span>Painel</span>
+                </button>
+                <button onclick="navegar('turmas')" class="nav-item body-md">
+                    <span>👥</span>
+                    <span>Turmas</span>
+                </button>
+                <button onclick="navegar('relatorios')" class="nav-item body-md">
+                    <span>📈</span>
+                    <span>Relatórios</span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="sidebar-footer">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Avatar Usuário" class="user-avatar" />
+            <button class="btn btn-primary btn-sm label-md">Gerar Relatório</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Topbar Header (Fixo) -->
+        <header class="topbar">
+            <h2 class="headline-md">Visão Geral - Hoje</h2>
+            <div class="topbar-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar aluno ou turma..." class="search-input body-md" />
+                </div>
+                <button class="icon-btn" aria-label="Notificações">
+                    🔔 <span class="badge-dot"></span>
+                </button>
+                <button class="icon-btn" aria-label="Perfil">👤</button>
+            </div>
+        </header>
+
+        <!-- Container onde o router.js injeta o dashboard.html ou turmas.html -->
+        <div id="app-content"></div>
+
+    </main>
 
     <script src="router.js"></script>
 </body>
