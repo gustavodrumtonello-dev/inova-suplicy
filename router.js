@@ -1,56 +1,61 @@
-// Mapeamento das rotas para o caminho de cada arquivo HTML
-const rotas = {
-  dashboard: './dashboard_page/view/dashboard.html',
-  relatorios: './relatorios_page/view/relatorios.html',
-  turmas: './turmas_page/view/turmas.html'
+// Mapeamento com os caminhos e arquivos HTML EXATOS do seu projeto
+const routes = {
+  "/": "./dashboard_page/view/dashboard.html",
+  "/dashboard": "./dashboard_page/view/dashboard.html",
+  "/relatorios": "./relatorios_page/view/relatorios.html",
+  "/turmas": "./turmas_page/view/turmas.html"
 };
 
-// Função principal para carregar o HTML da página solicitada
-async function navegar(pagina) {
-  const container = document.getElementById('app-content');
-  const caminho = rotas[pagina];
+/**
+ * Navega para a URL informada sem recarregar a página
+ */
+const navigateTo = (url) => {
+  window.history.pushState(null, null, url);
+  router();
+};
 
-  if (!caminho) {
-    container.innerHTML = '<div class="error-msg">Página não encontrada</div>';
-    return;
+/**
+ * Carrega dinamicamente o HTML correspondente à rota
+ */
+const router = async () => {
+  let path = window.location.pathname;
+
+  // Trata o carregamento inicial via Live Server no index.html
+  if (path === "/" || path.endsWith("/index.html")) {
+    path = "/";
   }
+
+  const route = routes[path] || routes["/"];
 
   try {
-    // Busca o arquivo HTML correspondente
-    const resposta = await fetch(caminho);
+    const response = await fetch(route);
 
-    if (!resposta.ok) {
-      throw new Error(`Erro ao carregar arquivo: ${resposta.statusText}`);
+    if (!response.ok) {
+      throw new Error(`Status ${response.status}`);
     }
 
-    // Injeta o conteúdo no container <main id="app-content">
-    const html = await resposta.text();
-    container.innerHTML = html;
-
-    // Atualiza o estado visual do menu
-    atualizarMenuAtivo(pagina);
-
-  } catch (erro) {
-    console.error('Erro na navegação:', erro);
-    container.innerHTML = '<div class="error-msg">Erro ao carregar a página.</div>';
+    const html = await response.text();
+    document.getElementById("app").innerHTML = html;
+  } catch (error) {
+    console.error("Erro ao carregar a visão:", error);
+    document.getElementById("app").innerHTML = `
+      <div style="padding: 2rem; text-align: center;">
+        <h2>Erro 404 - Arquivo Não Encontrado</h2>
+        <p>Não foi possível carregar o arquivo no caminho: <code>${route}</code></p>
+      </div>
+    `;
   }
-}
+};
 
-// Atualiza a classe 'active' nos botões de navegação
-function atualizarMenuAtivo(pagina) {
-  const botoes = document.querySelectorAll('.nav-links button');
-
-  botoes.forEach(botao => {
-    // Verifica se o handler onclick corresponde à página atual
-    if (botao.getAttribute('onclick')?.includes(`'${pagina}'`)) {
-      botao.classList.add('active');
-    } else {
-      botao.classList.remove('active');
+// Eventos de navegação da aplicação
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (e) => {
+    if (e.target.matches("[data-link]")) {
+      e.preventDefault();
+      navigateTo(e.target.href);
     }
   });
-}
 
-// Carrega a página inicial por padrão quando o documento terminar de carregar
-document.addEventListener('DOMContentLoaded', () => {
-  navegar('dashboard'); // Ou 'relatorios' / 'turmas'
+  window.addEventListener("popstate", router);
+  router();
 });
