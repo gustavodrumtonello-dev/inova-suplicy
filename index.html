@@ -3,66 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduCam - Gestão Acadêmica</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
+  <title>EduCam - Inova Suplicy</title>
   <link rel="stylesheet" href="global.css">
-  <link rel="stylesheet" href="dashboard_page/view/styles/dashboard.css">
-  <link rel="stylesheet" href="relatorios_page/view/styles/relatorios.css">
-  <link rel="stylesheet" href="turmas_page/view/styles/turmas.css">
 </head>
 <body>
 
-  <div class="app-container">
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="logo-box">
-          <i class="ph-bold ph-shield-check logo-icon"></i>
-          <div>
-            <h1 class="brand-title">EduCam</h1>
-            <span class="brand-subtitle">GESTÃO ACADÊMICA</span>
-          </div>
-        </div>
-      </div>
+  <header class="navbar">
+    <div class="logo">
+      <h2>EduCam</h2>
+    </div>
+    <nav>
+      <a href="/dashboard" data-link>Dashboard</a>
+      <a href="/relatorios" data-link>Relatórios</a>
+      <a href="/turmas" data-link>Turmas</a>
+    </nav>
+  </header>
 
-      <nav class="sidebar-nav">
-        <a href="/dashboard" class="nav-item active" data-link>
-          <i class="ph-bold ph-squares-four"></i>
-          <span>Painel</span>
-        </a>
-        <a href="/turmas" class="nav-item" data-link>
-          <i class="ph-bold ph-users-three"></i>
-          <span>Turmas</span>
-        </a>
-        <a href="/relatorios" class="nav-item" data-link>
-          <i class="ph-bold ph-chart-bar"></i>
-          <span>Relatórios</span>
-        </a>
-        <a href="#" class="nav-item disabled">
-          <i class="ph-bold ph-gear"></i>
-          <span>Configurações</span>
-        </a>
-      </nav>
+  <main id="app">
+    </main>
 
-      <div class="sidebar-footer">
-        <div class="user-card">
-          <div class="user-avatar">
-            <i class="ph-bold ph-user-gear"></i>
-          </div>
-          <div class="user-info">
-            <p class="user-name">Admin</p>
-            <p class="user-role">Secretaria Escolar</p>
-          </div>
-        </div>
-        <button class="btn-logout">SAIR</button>
-      </div>
-    </aside>
-
-    <div class="main-wrapper">
-      <header class="topbar">
-        <h2 id="page
+  <script type="module" src="router.js"></script>
+</body>
+</html>
