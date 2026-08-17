@@ -1,69 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduAdmin - Academic Oversight System</title>
-    <link rel="stylesheet" href="./global.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduCam - Gestão Acadêmica</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./global.css">
 </head>
 <body>
 
-    <!-- Sidebar (Fixo) -->
-    <aside class="sidebar">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
         <div>
-            <div class="sidebar-header">
-                <div class="brand-icon body-lg">🎓</div>
-                <div class="brand-info">
-                    <h1 class="headline-sm">EduAdmin</h1>
-                    <p class="label-md" style="color: var(--color-on-surface-variant);">Secretaria Escolar</p>
-                </div>
-            </div>
-
-            <!-- Menu de Navegação atualizado com o router -->
-            <nav class="sidebar-nav">
-                <button onclick="navegar('dashboard')" class="nav-item active body-md">
-                    <span>📊</span>
-                    <span>Painel</span>
-                </button>
-                <button onclick="navegar('turmas')" class="nav-item body-md">
-                    <span>👥</span>
-                    <span>Turmas</span>
-                </button>
-                <button onclick="navegar('relatorios')" class="nav-item body-md">
-                    <span>📈</span>
-                    <span>Relatórios</span>
-                </button>
-            </nav>
+          <h2>EduCam</h2>
+          <span>GESTÃO ACADÊMICA</span>
         </div>
+      </div>
 
-        <div class="sidebar-footer">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Avatar Usuário" class="user-avatar" />
-            <button class="btn btn-primary btn-sm label-md">Gerar Relatório</button>
-        </div>
-    </aside>
+      <nav class="nav-menu">
+        <a href="#/painel" class="nav-item active" data-page="painel">
+          <span class="icon">📊</span> Painel
+        </a>
+        <a href="#/turmas" class="nav-item" data-page="turmas">
+          <span class="icon">🎓</span> Turmas
+        </a>
+        <a href="#/relatorios" class="nav-item" data-page="relatorios">
+          <span class="icon">📄</span> Relatórios
+        </a>
+        <a href="#/configuracoes" class="nav-item" data-page="configuracoes">
+          <span class="icon">⚙️</span> Configurações
+        </a>
+      </nav>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <div class="sidebar-user">
+      <div class="avatar">AD</div>
+      <div class="user-info">
+        <strong>Admin</strong>
+        <small>Secretaria Escolar</small>
+      </div>
+    </div>
+  </aside>
 
-        <!-- Topbar Header (Fixo) -->
-        <header class="topbar">
-            <h2 class="headline-md">Visão Geral - Hoje</h2>
-            <div class="topbar-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar aluno ou turma..." class="search-input body-md" />
-                </div>
-                <button class="icon-btn" aria-label="Notificações">
-                    🔔 <span class="badge-dot"></span>
-                </button>
-                <button class="icon-btn" aria-label="Perfil">👤</button>
-            </div>
-        </header>
+  <main class="main-content">
+    <header class="topbar">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar aluno ou turma...">
+      </div>
+    </header>
 
-        <!-- Container onde o router.js injeta o dashboard.html ou turmas.html -->
-        <div id="app-content"></div>
+    <div id="page-content"></div>
+  </main>
 
-    </main>
-
-    <script src="router.js"></script>
+  <script src="./router.js"></script>
 </body>
 </html>
