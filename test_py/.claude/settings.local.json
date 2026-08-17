@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python -m pip download opencv-contrib-python --no-deps -d \"$env:TEMP\\\\ocvchk\" --only-binary=:all: 2>&1 | Select-Object -Last 15)"
+    ]
+  }
+}

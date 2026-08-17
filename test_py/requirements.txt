@@ -1,0 +1,8 @@
+# OpenCV 4.x com modulos extras (LBPH face recognizer)
+opencv-contrib-python<5
+numpy
+supabase
+python-dotenv
+requests
+pillow
+
