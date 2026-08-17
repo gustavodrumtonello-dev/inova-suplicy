@@ -65,6 +65,12 @@ body {
   padding: 0 8px;
 }
 
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
 .brand h2 {
   font-size: 20px;
   font-weight: 700;
@@ -95,6 +101,12 @@ body {
   font-weight: 500;
   border-radius: 8px;
   transition: all 0.2s ease;
+}
+
+.nav-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
 }
 
 .nav-item:hover, .nav-item.active {
