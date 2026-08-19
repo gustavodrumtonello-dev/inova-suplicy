@@ -43,7 +43,7 @@ ARQUIVO_ROTULOS = os.path.join(PASTA_BASE, "rotulos.txt")
 QTD_AMOSTRAS = 40          # quantas fotos capturar por pessoa no cadastro local
 INTERVALO_CAPTURA = 3      # salva 1 a cada N quadros
 INDICE_CAMERA = 0          # 0 = webcam padrao
-LIMIAR_CONFIANCA = 85.0    # abaixo disso = reconhecido; acima = "Desconhecido"
+LIMIAR_CONFIANCA = 35.0    # abaixo disso = reconhecido; acima = "Desconhecido"
 TAM_ROSTO = (200, 200)     # tamanho padronizado das imagens de rosto
 QUADROS_AQUECIMENTO = 10   # descarta os primeiros quadros
 
