@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 import cv2
 import os
 import tkinter as tk
@@ -25,7 +26,8 @@ if not os.path.exists(PASTA_LOCAL_TEMP):
 def buscar_turmas():
     """Busca as turmas cadastradas na tabela 'turmas' do Supabase."""
     try:
-        resposta = supabase.table("turmas").select("id, Nome").execute()
+        # ✅ Correção: Alinhado 'Nome' para 'nome' (minúsculo)
+        resposta = supabase.table("turmas").select("id, nome").execute()
         return resposta.data if resposta.data else []
     except Exception as e:
         print(f"[ERRO] Falha ao carregar turmas: {e}")
@@ -34,7 +36,8 @@ def buscar_turmas():
 def abrir_tela_cadastro():
     turmas_cadastradas = buscar_turmas()
     
-    cap = cv2.VideoCapture(0)
+    # ✅ Correção: Uso do backend DirectShow (CAP_DSHOW) no Windows
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
     win = tk.Tk()
     win.title("Cadastrar Novo Aluno - Supabase")
@@ -53,7 +56,8 @@ def abrir_tela_cadastro():
     if turmas_cadastradas:
         opcoes_turmas = []
         for t in turmas_cadastradas:
-            label = f"{t['Nome']} (ID: {t['id']})"
+            # ✅ Correção: Chave de acesso em minúsculo 'nome'
+            label = f"{t['nome']} (ID: {t['id']})"
             opcoes_turmas.append(label)
             mapa_turmas[label] = t['id']
             
@@ -120,10 +124,11 @@ def abrir_tela_cadastro():
 
             url_foto = supabase.storage.from_(BUCKET_NAME).get_public_url(nome_arquivo)
 
+            # ✅ Correção: Nomes das colunas ajustados para minúsculas
             dados = {
-                "Nome": nome,
-                "Turma_id": turma_id,
-                "Foto_url": url_foto
+                "nome": nome,
+                "turma_id": turma_id,
+                "foto_url": url_foto
             }
             supabase.table("alunos").insert(dados).execute()
 

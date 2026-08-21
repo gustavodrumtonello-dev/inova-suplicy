@@ -16,7 +16,9 @@ import shutil
 import urllib.parse
 from typing import List, Dict, Tuple, Optional
 
+# pyrefly: ignore [missing-import]
 import cv2
+# pyrefly: ignore [missing-import]
 import numpy as np
 import requests
 from dotenv import load_dotenv
