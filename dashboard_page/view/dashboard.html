@@ -1,295 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EduAdmin - Academic Oversight System</title>
-        <!-- CSS Externo -->
-        <link rel="stylesheet" href="./styles/dashboard.css" />
-    </head>
-    <body>
 
-        <!-- Sidebar Component -->
-        <aside class="sidebar">
-            <div>
-                <!-- Header -->
-                <div class="dashboard-container">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduAdmin - Academic Oversight System</title>
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="./styles/dashboard.css" />
+</head>
 
-                    <!-- Date Indicator & Action Bar -->
-                    <div class="dash-header">
-                        <div class="body-md"
-                            style="color: var(--color-on-surface-variant); display: flex; align-items: center; gap: 8px;">
-                            <span>📅</span>
-                            <span>Terça-feira, 24 de Outubro, 2023</span>
-                        </div>
+<body>
+    <!-- Header -->
+    <div class="dashboard-container">
 
-                        <div class="action-buttons">
-                            <button class="btn btn-secondary body-md">
-                                <span>📥</span> Exportar Dados
-                            </button>
-                            <button class="btn btn-primary body-md">
-                                <span>📄</span> Gerar Relatório
-                            </button>
-                        </div>
+        <!-- Date Indicator & Action Bar -->
+        <div class="dash-header">
+            <div class="body-md"
+                style="color: var(--color-on-surface-variant); display: flex; align-items: center; gap: 8px;">
+                <span>📅</span>
+                <span>Terça-feira, 24 de Outubro, 2026</span>
+            </div>
+
+            <!-- KPI Metrics Grid (12 Columns Architecture) -->
+            <div class="metrics-grid">
+
+                <!-- Metric Card 1 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="label-md">Total de Alunos</span>
+                        <span>👥</span>
                     </div>
-
-                    <!-- KPI Metrics Grid (12 Columns Architecture) -->
-                    <div class="metrics-grid">
-
-                        <!-- Metric Card 1 -->
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="label-md">Total de Alunos</span>
-                                <span>👥</span>
-                            </div>
-                            <div
-                                class="card-value display-lg data-tabular">1,248</div>
-                            <p class="card-subtitle body-md">Matriculados
-                                ativos</p>
-                        </div>
-
-                        <!-- Metric Card 2 -->
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="label-md">Presentes</span>
-                                <span>👤</span>
-                            </div>
-                            <div
-                                class="card-value display-lg data-tabular">1,156</div>
-                            <p
-                                class="card-subtitle body-md text-secondary-blue">📈
-                                92.6% Taxa de presença</p>
-                        </div>
-
-                        <!-- Metric Card 3 -->
-                        <div class="card">
-                            <div class="card-header">
-                                <span class="label-md">Ausentes</span>
-                                <span>🚫</span>
-                            </div>
-                            <div
-                                class="card-value display-lg data-tabular">42</div>
-                            <p class="card-subtitle body-md">3.3% do total</p>
-                        </div>
-
-                        <!-- Metric Card 4 -->
-                        <div class="card card-alert">
-                            <div class="card-header">
-                                <span class="label-md">Atrasados</span>
-                                <span>⏰</span>
-                            </div>
-                            <div
-                                class="card-value display-lg data-tabular text-danger">50</div>
-                            <p class="card-subtitle body-md text-danger">⚠️
-                                Acima da média diária</p>
-                        </div>
-
-                    </div>
-
-                    <!-- Detail Panels Grid -->
-                    <div class="details-grid">
-
-                        <!-- Real-time Alert Feed Panel -->
-                        <div class="panel">
-                            <div>
-                                <div class="panel-header">
-                                    <div class="panel-title-group">
-                                        <span class="status-indicator"></span>
-                                        <h3 class="headline-sm">Feed de Atrasos
-                                            em Tempo Real</h3>
-                                    </div>
-                                    <a href="#" class="link-action label-md">Ver
-                                        Todos</a>
-                                </div>
-
-                                <!-- Feed List Table View -->
-                                <div class="feed-list">
-                                    <div class="feed-item">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">LM</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Lucas
-                                                    Mendes</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    3B • Matemática</p>
-                                            </div>
-                                        </div>
-                                        <div class="time-info">
-                                            <span
-                                                class="data-tabular text-danger"
-                                                style="font-weight: 700; display: block;">+15
-                                                min</span>
-                                            <span class="data-tabular"
-                                                style="color: var(--color-outline);">08:15
-                                                AM</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="feed-item">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">AS</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Ana
-                                                    Silva</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    1A • História</p>
-                                            </div>
-                                        </div>
-                                        <div class="time-info">
-                                            <span
-                                                class="data-tabular text-danger"
-                                                style="font-weight: 700; display: block;">+22
-                                                min</span>
-                                            <span class="data-tabular"
-                                                style="color: var(--color-outline);">08:22
-                                                AM</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="feed-item justified">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">JP</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">João
-                                                    Pereira</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    2C • Física</p>
-                                            </div>
-                                        </div>
-                                        <div class="time-info">
-                                            <span
-                                                class="data-tabular text-secondary-blue"
-                                                style="font-weight: 600; display: block;">Justificado</span>
-                                            <span class="data-tabular"
-                                                style="color: var(--color-outline);">08:05
-                                                AM</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="feed-item late">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">MR</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Maria
-                                                    Ribeiro</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    3A • Biologia</p>
-                                            </div>
-                                        </div>
-                                        <div class="time-info">
-                                            <span
-                                                class="data-tabular text-danger"
-                                                style="font-weight: 700; display: block;">+08
-                                                min</span>
-                                            <span class="data-tabular"
-                                                style="color: var(--color-outline);">08:08
-                                                AM</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reincident Student Panel -->
-                        <div class="panel">
-                            <div>
-                                <div class="panel-header">
-                                    <div class="panel-title-group">
-                                        <span>🔄</span>
-                                        <h3
-                                            class="headline-sm">Reincidentes</h3>
-                                    </div>
-                                </div>
-
-                                <p class="body-md"
-                                    style="color: var(--color-on-surface-variant); margin-top: 12px;">
-                                    Alunos com mais de 3 atrasos na semana
-                                    atual.
-                                </p>
-
-                                <!-- Reincident List -->
-                                <div class="reincident-list">
-                                    <div class="reincident-item">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">CF</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Carlos
-                                                    Ferreira</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    1B</p>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="chip chip-danger label-md">5
-                                            Atrasos</span>
-                                    </div>
-
-                                    <div class="reincident-item">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">BA</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Beatriz
-                                                    Almeida</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    2A</p>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="chip chip-danger label-md">4
-                                            Atrasos</span>
-                                    </div>
-
-                                    <div class="reincident-item">
-                                        <div class="user-info">
-                                            <div
-                                                class="avatar-placeholder label-md">RO</div>
-                                            <div>
-                                                <p class="body-md"
-                                                    style="font-weight: 600;">Rafael
-                                                    Oliveira</p>
-                                                <p class="label-md"
-                                                    style="color: var(--color-on-surface-variant);">Turma
-                                                    3C</p>
-                                            </div>
-                                        </div>
-                                        <span
-                                            class="chip chip-neutral label-md">3
-                                            Atrasos</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Footer Action -->
-                            <div class="panel-footer">
-                                <button
-                                    class="btn btn-secondary btn-full body-md">
-                                    Ver Relatório Completo
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    <div class="card-value display-lg data-tabular">1,248</div>
+                    <p class="card-subtitle body-md">Matriculados
+                        ativos</p>
                 </div>
-            </main>
 
-        </body>
-    </html>
+                <!-- Metric Card 2 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="label-md">Presentes</span>
+                        <span>👤</span>
+                    </div>
+                    <div class="card-value display-lg data-tabular">1,156</div>
+                    <p class="card-subtitle body-md text-secondary-blue">📈
+                        92.6% Taxa de presença</p>
+                </div>
+
+                <!-- Metric Card 3 -->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="label-md">Ausentes</span>
+                        <span>🚫</span>
+                    </div>
+                    <div class="card-value display-lg data-tabular">42</div>
+                    <p class="card-subtitle body-md">3.3% do total</p>
+                </div>
+
+                <!-- Metric Card 4 -->
+                <div class="card card-alert">
+                    <div class="card-header">
+                        <span class="label-md">Atrasados</span>
+                        <span>⏰</span>
+                    </div>
+                    <div class="card-value display-lg data-tabular text-danger">50</div>
+                    <p class="card-subtitle body-md text-danger">⚠️
+                        Acima da média diária</p>
+                </div>
+
+            </div>
+
+            <!-- Detail Panels Grid -->
+            <div class="details-grid">
+
+                <!-- Real-time Alert Feed Panel -->
+                <div class="panel">
+                    <div>
+                        <div class="panel-header">
+                            <div class="panel-title-group">
+                                <span class="status-indicator"></span>
+                                <h3 class="headline-sm">Feed de Atrasos
+                                    em Tempo Real</h3>
+                            </div>
+                            <a href="#" class="link-action label-md">Ver
+                                Todos</a>
+                        </div>
+
+                        <!-- Feed List Table View -->
+                        <div class="feed-list">
+                            <div class="feed-item">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">LM</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Lucas
+                                            Mendes</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            3B • Matemática</p>
+                                    </div>
+                                </div>
+                                <div class="time-info">
+                                    <span class="data-tabular text-danger" style="font-weight: 700; display: block;">+15
+                                        min</span>
+                                    <span class="data-tabular" style="color: var(--color-outline);">08:15
+                                        AM</span>
+                                </div>
+                            </div>
+
+                            <div class="feed-item">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">AS</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Ana
+                                            Silva</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            1A • História</p>
+                                    </div>
+                                </div>
+                                <div class="time-info">
+                                    <span class="data-tabular text-danger" style="font-weight: 700; display: block;">+22
+                                        min</span>
+                                    <span class="data-tabular" style="color: var(--color-outline);">08:22
+                                        AM</span>
+                                </div>
+                            </div>
+
+                            <div class="feed-item justified">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">JP</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">João
+                                            Pereira</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            2C • Física</p>
+                                    </div>
+                                </div>
+                                <div class="time-info">
+                                    <span class="data-tabular text-secondary-blue"
+                                        style="font-weight: 600; display: block;">Justificado</span>
+                                    <span class="data-tabular" style="color: var(--color-outline);">08:05
+                                        AM</span>
+                                </div>
+                            </div>
+
+                            <div class="feed-item late">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">MR</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Maria
+                                            Ribeiro</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            3A • Biologia</p>
+                                    </div>
+                                </div>
+                                <div class="time-info">
+                                    <span class="data-tabular text-danger" style="font-weight: 700; display: block;">+08
+                                        min</span>
+                                    <span class="data-tabular" style="color: var(--color-outline);">08:08
+                                        AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reincident Student Panel -->
+                <div class="panel">
+                    <div>
+                        <div class="panel-header">
+                            <div class="panel-title-group">
+                                <span>🔄</span>
+                                <h3 class="headline-sm">Reincidentes</h3>
+                            </div>
+                        </div>
+
+                        <p class="body-md" style="color: var(--color-on-surface-variant); margin-top: 12px;">
+                            Alunos com mais de 3 atrasos na semana
+                            atual.
+                        </p>
+
+                        <!-- Reincident List -->
+                        <div class="reincident-list">
+                            <div class="reincident-item">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">CF</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Carlos
+                                            Ferreira</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            1B</p>
+                                    </div>
+                                </div>
+                                <span class="chip chip-danger label-md">5
+                                    Atrasos</span>
+                            </div>
+
+                            <div class="reincident-item">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">BA</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Beatriz
+                                            Almeida</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            2A</p>
+                                    </div>
+                                </div>
+                                <span class="chip chip-danger label-md">4
+                                    Atrasos</span>
+                            </div>
+
+                            <div class="reincident-item">
+                                <div class="user-info">
+                                    <div class="avatar-placeholder label-md">RO</div>
+                                    <div>
+                                        <p class="body-md" style="font-weight: 600;">Rafael
+                                            Oliveira</p>
+                                        <p class="label-md" style="color: var(--color-on-surface-variant);">
+                                            Turma
+                                            3C</p>
+                                    </div>
+                                </div>
+                                <span class="chip chip-neutral label-md">3
+                                    Atrasos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Action -->
+                    <div class="panel-footer">
+                        <button class="btn btn-secondary btn-full body-md">
+                            Ver Relatório Completo
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </main>
+
+</body>
+
+</html>
